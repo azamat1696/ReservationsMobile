@@ -1,0 +1,10 @@
+{
+  "appId": "restaurantapp.org",
+  "appName": "Quasar App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "server": {
+    "url": "http://192.168.88.1:9500"
+  }
+}

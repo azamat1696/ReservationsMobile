@@ -1,0 +1,7 @@
+{
+  "appId": "restaurantapp.org",
+  "appName": "Restaurant App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}
