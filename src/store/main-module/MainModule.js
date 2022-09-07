@@ -8,10 +8,14 @@ const state = {
   restaurants: [],
   events: [],
   reservations: [],
-  sliders : []
+  sliders : [],
+  eventCustomers : []
 
 }
 const mutations = {
+  SET_EVENT_CUSTOMERS(state,items){
+    state.eventCustomers = items
+  },
   SET_ITEMS_RESTAURANT_TYPES(state,items){
     state.restaurantTypes = items
   },
@@ -70,6 +74,14 @@ const actions = {
       return true
     })
 
+  },
+  getAllEventCustomers({commit}){
+
+    api.get('event-customers').then(res => {
+      commit('SET_EVENT_CUSTOMERS',res.data)
+    }).catch(er => {
+      ErrorHandlePrint(er)
+    })
   }
 }
 const getters = {
@@ -97,6 +109,9 @@ const getters = {
   },
   sliders: (state) => {
     return state.sliders.filter( el => +el.Status !== 0 )
+  },
+  getAllEventCustomers : (state) => (id) =>  {
+    return state.eventCustomers.filter(el => el.customer_id === +id)
   }
 }
 

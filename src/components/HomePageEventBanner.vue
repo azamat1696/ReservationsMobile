@@ -8,13 +8,13 @@
       </div>
       <div class="text-h5 text-shadow">
         {{detail.EventName}}
-        {{detail.id}}
+
       </div>
     </div>
 
-    <div class="absolute-top-right bg-transparent cursor-pointer">
-      <q-icon :name="favorite ? 'favorite' : 'favorite_border' " color="red" size="30px" class="favorite_card cursor-pointer"  @click="toggleFavorite"/>
-    </div>
+<!--    <div class="absolute-top-right bg-transparent cursor-pointer">-->
+<!--      <q-icon :name="favorite ? 'favorite' : 'favorite_border' " color="red" size="30px" class="favorite_card cursor-pointer"  @click="toggleFavorite"/>-->
+<!--    </div>-->
   </q-img>
 </div>
  </template>

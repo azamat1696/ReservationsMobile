@@ -5,15 +5,19 @@
         <div class="text-h5">Geçici Şifre</div>
         <div class="text-subtitle1">E-posta hesabınızdan geçici şifre alınınız</div>
       </div>
-      <div class="text-left"  style="background-repeat: no-repeat ;background-image: url('src/assets/icons/bg-img.png'); min-width: 325px;min-height: 340px">
+      <div class="text-left"  :style="[ this.$q.dark.isActive ? { 'background':'url(\'../src/assets/icons/bg-2.png\') center no-repeat','min-height':'340px',' min-width' : '325px' } : { 'background':'url(\'../src/assets/icons/bg-img.png\') center no-repeat','min-height':'340px',' min-width' : '325px' }]">
         <q-form
           @submit="login"
         >
           <div class="q-mb-lg q-pl-lg q-pr-lg">
             <div class="text-subtitle2 q-pa-sm">E-posta</div>
-            <q-input outlined  dense v-model="email"   rounded style="background: #f5f5f5 !important;"/>
+            <q-input outlined  dense v-model="email" color="grey"   rounded :input-class="[this.$q.dark.isActive ? 'text-subtitle1 text-white':'text-subtitle1  text-grey-9']" >
+              <template v-slot:prepend>
+                <q-icon name="email"  color="red" />
+              </template>
+            </q-input>
             <q-btn class="full-width q-mt-lg" label="Gönder" no-caps color="red"  type="submit"  rounded />
-            <div class="text-caption text-center text-grey q-mt-lg flex" @click="this.$router.push({name:'UserRegister'})" >Hesabınız yok mu? <div class="text-red">&nbsp &nbsp &nbsp &nbsp &nbsp Ücretsiz hesap açın</div></div>
+            <div class="text-caption text-center text-grey q-mt-lg flex cursor-pointer" @click="this.$router.push({name:'UserRegister'})" >Hesabınız yok mu? <div class="text-red">&nbsp &nbsp &nbsp &nbsp &nbsp Ücretsiz hesap açın</div></div>
           </div>
         </q-form>
       </div>

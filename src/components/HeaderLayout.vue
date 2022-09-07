@@ -77,13 +77,12 @@
 </template>
 
 <script>
-import {useQuasar} from "quasar";
 import {ref} from "vue";
 
 export default {
   name: "HeaderLayout",
   setup(){
-    const $q = useQuasar()
+
     return {
       fourth: ref(true)
     }

@@ -19,7 +19,7 @@
         </q-badge>
 
         <q-badge  rounded color="red" class="q-pa-sm"><q-icon name="schedule" color="white" size="xs" /> {{ date.formatDate(item.StartDateTime,'HH:mm')+ ' - ' +date.formatDate(item.EndDateTime,'HH:mm') }} </q-badge>
-        <q-btn   :to="{name: 'EventPage',params:{ id: item.id }}">Detaylar</q-btn>
+        <q-btn flat  color="red" no-caps :to="{name: 'EventPage',params:{ id: item.id }}">Detay</q-btn>
       </q-card-actions>
 
     </q-card>
@@ -44,10 +44,11 @@ export default {
   },
   created() {
     this.$store.dispatch('MainModule/getAllEvents')
+    this.$store.dispatch('MainModule/getAllEventCustomers')
   },
   computed: {
     event(){
-      return this.$store.getters['MainModule/eventFilteredByCustomerId'](this.customer_id)
+      return this.$store.getters['MainModule/getAllEventCustomers'](this.customer_id)
     }
   },
   methods: {

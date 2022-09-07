@@ -26,6 +26,9 @@
        readonly
        disable
      >
+       <template v-slot:prepend>
+         <q-icon name="person"  color="red" />
+       </template>
      </q-input>
    </div>
    <div class="col-12 q-pt-xs">
@@ -40,6 +43,9 @@
        readonly
        disable
      >
+       <template v-slot:prepend>
+         <q-icon name="people"  color="red"/>
+       </template>
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
@@ -54,6 +60,9 @@
        readonly
        disable
      >
+       <template v-slot:prepend>
+         <q-icon name="alternate_email"  color="red"/>
+       </template>
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
@@ -69,6 +78,9 @@
        disable
 
      >
+       <template v-slot:prepend>
+         <q-icon name="phone_iphone"  color="red" />
+       </template>
      </q-input>
    </div>
    <div class="col-12">
@@ -84,6 +96,9 @@
        readonly
        disable
      >
+       <template v-slot:prepend>
+         <q-icon name="lock" color="red"/>
+       </template>
      </q-input>
    </div>
  </div>
@@ -92,11 +107,11 @@
 
       <q-card-actions class="flex justify-around " v-if="email !== ''">
 <!--        <q-btn flat color="white" label="Çıkış Yapın" no-caps class="bg-red"  @click="this.$store.dispatch('AuthModule/logout')"   />-->
-        <q-btn flat color="white" label="Düzenleyin" no-caps class="bg-blue-grey-9"  :to="{name: 'EditProfile'}"    />
+        <q-btn flat color="white" label="Düzenleyin" no-caps class="bg-blue-grey-9" icon="auto_fix_high"  :to="{name: 'EditProfile'}"    />
 
       </q-card-actions>
       <q-card-actions class="flex justify-around " v-else>
-        <q-btn flat color="white" label="Giriş Yap" no-caps class="bg-red"  :to="{name: 'login'}"   />
+        <q-btn flat color="white" label="Giriş Yap" no-caps class="bg-red"  icon-right="login" :to="{name: 'login'}"   />
       </q-card-actions>
 
     </q-card>

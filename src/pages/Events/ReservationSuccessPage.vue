@@ -6,14 +6,14 @@
           <q-icon name="arrow_back" size="md" color="white" class="cursor-pointer"/>
         </router-link>
       </div>
-      <div class="absolute-bottom">
-        <div class="text-subtitle2 flex justify-between">
-          <div class> <q-icon name="calendar_month" color="white" size="xs" />
-            {{date.formatDate(event.StartDateTime,'D')+' - '+date.formatDate(event.EndDateTime,'D') +' '+date.formatDate(event.StartDateTime,'MMMM')+', '+date.formatDate(event.StartDateTime,'YYYY')}}
-          </div>
-          <div><q-icon name="schedule" color="white" size="xs" /> {{ date.formatDate(event.StartDateTime,'HH:mm')+ ' - ' +date.formatDate(event.EndDateTime,'HH:mm') }} </div>
-        </div>
-      </div>
+<!--      <div class="absolute-bottom">-->
+<!--        <div class="text-subtitle2 flex justify-between">-->
+<!--          <div class> <q-icon name="calendar_month" color="white" size="xs" />-->
+<!--            {{date.formatDate(event.StartDateTime,'D')+' - '+date.formatDate(event.EndDateTime,'D') +' '+date.formatDate(event.StartDateTime,'MMMM')+', '+date.formatDate(event.StartDateTime,'YYYY')}}-->
+<!--          </div>-->
+<!--          <div><q-icon name="schedule" color="white" size="xs" /> {{ date.formatDate(event.StartDateTime,'HH:mm')+ ' - ' +date.formatDate(event.EndDateTime,'HH:mm') }} </div>-->
+<!--        </div>-->
+<!--      </div>-->
     </q-img>
     <q-card class="no-shadow">
       <q-card-section class="q-pb-none">
@@ -41,6 +41,61 @@
 <!--        </div>-->
 
 <!--      </q-card-section>-->
+
+      <q-card-section class="text-dark bg-white">
+        <div class="text-h6 text-dark q-pb-lg">Etkinlik Bilgileri</div>
+        <q-list   >
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon color="dark" name="phone" />
+            </q-item-section>
+
+            <q-item-section class="text-dark">{{ event.EventName }}</q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon color="dark" name="description" />
+            </q-item-section>
+
+            <q-item-section class="text-dark">{{ event.EventDescription }}</q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon color="dark" name="event" />
+            </q-item-section>
+
+            <q-item-section class="text-dark">
+              {{date.formatDate(event.StartDateTime,'D')+' - '+date.formatDate(event.EndDateTime,'D') +' '+date.formatDate(event.StartDateTime,'MMMM')+', '+date.formatDate(event.StartDateTime,'YYYY')}}
+
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon color="dark" name="schedule" />
+            </q-item-section>
+
+            <q-item-section class="text-dark">
+              {{ date.formatDate(event.StartDateTime,'HH:mm')+ ' - ' +date.formatDate(event.EndDateTime,'HH:mm') }}
+
+            </q-item-section>
+          </q-item>
+
+
+
+        </q-list>
+        <!--        <div class="text-h5 q-mt-sm q-mb-xs">{{  restaurant.PlaceName}}</div>-->
+        <!--        <table>-->
+        <!--          <tbody>-->
+        <!--          <tr>-->
+        <!--            <td>-->
+        <!--              ksdsd-->
+        <!--            </td>-->
+        <!--          </tr>-->
+        <!--          </tbody>-->
+        <!--        </table>-->
+      </q-card-section>
+
     </q-card>
   </div>
 </template>

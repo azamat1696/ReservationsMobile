@@ -2,7 +2,7 @@
  <div>
    <q-img  :src="Constants.FILE_URL+'/eventBanners/'+event.Banner" class="q-card--bordered" height="250px" >
      <div class="absolute-top-left bg-transparent">
-       <router-link :to="{name: 'events'}">
+       <router-link  :to="{name:'Reservations'}">
          <q-icon name="arrow_back" size="md" color="white" class="cursor-pointer"/>
        </router-link>
      </div>
@@ -30,11 +30,11 @@
      </q-tabs>
      <q-separator />
      <q-tab-panels v-model="tab" animated>
-         <q-tab-panel name="restaurantInfo">
+         <q-tab-panel name="restaurantInfo" :class="[this.$q.dark.isActive ? 'text-subtitle1 bg-dark text-white':'text-subtitle1  text-grey-9 bg-primary']" style="width: 100%;height: 300px;">
          {{ event.EventDescription }}
        </q-tab-panel>
-         <q-tab-panel name="restaurantInfoLocation">
-    <div style="width: 100%;height: 300px;">
+         <q-tab-panel name="restaurantInfoLocation" class="no-padding">
+    <div style="width: 100%;height: 300px;"  >
 
 <google-map  :all-locations="restaurantLocation"/>
 
@@ -70,7 +70,7 @@
              </q-card-section>
              <q-card-section class="q-pt-none row">
                <div class="q-pa-xs col-12">
-                 <div class="text-subtitle2 text-grey-8 "> İsim   </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8 ']"> İsim   </div>
                  <q-input
                    dense
                    outlined
@@ -78,10 +78,13 @@
                    hide-bottom-space
                    v-model="formFields.name"
                  >
+                   <template v-slot:prepend>
+                     <q-icon name="person"  color="red" />
+                   </template>
                  </q-input>
                </div>
                <div class="q-pa-xs col-12">
-                 <div class="text-subtitle2 text-grey-8 "> Soyisim  </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Soyisim  </div>
                  <q-input
                    dense
                    outlined
@@ -89,10 +92,13 @@
                    hide-bottom-space
                    v-model="formFields.surname"
                  >
+                   <template v-slot:prepend>
+                     <q-icon name="people"  color="red"/>
+                   </template>
                  </q-input>
                </div>
                <div class="q-pa-xs col-12">
-                 <div class="text-subtitle2  text-grey-8  "> Telefon </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Telefon </div>
                  <q-input
                    dense
                    outlined
@@ -100,10 +106,13 @@
                    hide-bottom-space
                    v-model="formFields.phone"
                  >
+                   <template v-slot:prepend>
+                     <q-icon name="phone_iphone"  color="red" />
+                   </template>
                  </q-input>
                </div>
                <div  class="q-pa-xs col-12">
-                 <div class="text-subtitle2  text-grey-8  "> E-posta </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> E-posta </div>
                  <q-input
                    dense
                    outlined
@@ -111,6 +120,9 @@
                    hide-bottom-space
                    v-model="formFields.email"
                  >
+                   <template v-slot:prepend>
+                     <q-icon name="alternate_email"  color="red"/>
+                   </template>
                  </q-input>
                </div>
 

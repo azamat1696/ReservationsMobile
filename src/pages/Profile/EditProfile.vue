@@ -23,6 +23,9 @@
        hide-bottom-space
        class="q-pr-lg q-pl-lg"
      >
+       <template v-slot:prepend>
+         <q-icon name="person"  color="red" />
+       </template>
      </q-input>
    </div>
    <div class="col-12 q-pt-xs">
@@ -34,6 +37,9 @@
        hide-bottom-space
        class="q-pr-lg q-pl-lg"
      >
+       <template v-slot:prepend>
+         <q-icon name="people"  color="red"/>
+       </template>
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
@@ -45,6 +51,9 @@
        hide-bottom-space
        class="q-pr-lg q-pl-lg"
      >
+       <template v-slot:prepend>
+         <q-icon name="alternate_email"  color="red"/>
+       </template>
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
@@ -56,6 +65,9 @@
        hide-bottom-space
        class="q-pr-lg q-pl-lg"
      >
+       <template v-slot:prepend>
+         <q-icon name="phone_iphone"  color="red" />
+       </template>
      </q-input>
    </div>
    <div class="col-12">
@@ -67,6 +79,9 @@
        hide-bottom-space
        class="q-pr-lg q-pl-lg"
      >
+       <template v-slot:prepend>
+         <q-icon name="lock" color="red"/>
+       </template>
      </q-input>
    </div>
  </div>
@@ -74,8 +89,8 @@
       </q-card-section>
 
       <q-card-actions class="flex justify-around ">
-        <q-btn flat color="white" label="Geri Git" no-caps class="bg-red"  :to="{name: 'Profile'}"   />
-        <q-btn flat color="white" label="Kaydet" no-caps class="bg-blue-grey-9" type="submit"/>
+        <q-btn flat color="white" label="Geri Git" icon="undo" no-caps class="bg-red"  :to="{name: 'Profile'}"   />
+        <q-btn flat color="white" label="Kaydet" icon="save" no-caps class="bg-blue-grey-9" type="submit"/>
       </q-card-actions>
 
     </q-card>
