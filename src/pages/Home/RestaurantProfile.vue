@@ -59,14 +59,14 @@
               <q-icon   name="mail" />
             </q-item-section>
 
-            <q-item-section  >{{ restaurant.email }}</q-item-section>
+            <q-item-section> <a href="mailto:{{ restaurant.email }}"  style="text-decoration: none; color: #565252"> {{ restaurant.email }} </a> </q-item-section>
           </q-item>
           <q-item clickable v-ripple>
             <q-item-section avatar>
               <q-icon   name="phone" />
             </q-item-section>
 
-            <q-item-section >{{ restaurant.phone }}</q-item-section>
+            <q-item-section > <a href="tel:{{ restaurant.phone }}" style="text-decoration: none; color: #565252" > {{ restaurant.phone }} </a></q-item-section>
           </q-item>
 
 

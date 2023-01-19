@@ -44,7 +44,7 @@
    </q-card>
    <q-card-section>
      <q-btn color="grey-4" text-color="black" label="İletişime geçin" href="tel:123-456-7890" no-caps  class="full-width q-mt-lg" style="border-radius: 16px"/>
-     <q-btn color="red" text-color="white" label="Rezervasyon yapın" no-caps  class="full-width q-mt-lg" style="border-radius: 16px" @click="showFormDialog = true"/>
+     <q-btn color="red" text-color="white" label="Rezervasyon yapın" no-caps  class="full-width q-mt-lg" style="border-radius: 16px" @click="showDialog"/>
    </q-card-section>
    <q-card>
 
@@ -125,6 +125,19 @@
                    </template>
                  </q-input>
                </div>
+               <div  class="q-pa-xs col-12">
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Gelecek kişi sayısı</div>
+                 <q-input
+                   dense
+                   outlined
+                   :lazy-rules="true"
+                   hide-bottom-space
+                   type="number"
+                   v-model="formFields.guestCustomer"
+                 >
+
+                 </q-input>
+               </div>
 
              </q-card-section>
              <q-card-section class="text-right flex justify-between" >
@@ -152,6 +165,7 @@ export default {
   name: "EventPage",
   components: { GoogleMap },
   setup() {
+
     return {
       tab: ref('restaurantInfo'),
       Constants,
@@ -161,7 +175,8 @@ export default {
          name: '',
          surname: '',
          email: '',
-         phone: ''
+         phone: '',
+         guestCustomer: 0
       })
     }
   },
@@ -175,24 +190,42 @@ export default {
     },
     restaurantLocation(){
       return JSON.parse(this.$store.getters['MainModule/restaurantById'](this.event.restaurant_id).Positions)
-    }
+    },
+
   },
   methods: {
-    onSubmit(){
-      let formData = new FormData()
-      formData.append('name',this.formFields.name)
-      formData.append('surname',this.formFields.surname)
-      formData.append('email',this.formFields.email)
-      formData.append('phone',this.formFields.phone)
-      formData.append('event_id',this.event.id)
-      this.$store.dispatch('MainModule/create',formData).then(res => {
-         if (res){
-           this.showFormDialog = false
-           this.onReset()
-           this.$router.push({name:'ReservationSuccess', params:{id: this.event.id}})
+    showDialog(){
+      this.checkAuth()
+      this.showFormDialog = true
+    },
+    checkAuth() {
+      if (localStorage.getItem('webUserDetail') !== null) {
+        this.locals = localStorage.getItem('webUserDetail')
+        this.formFields.name = JSON.parse(localStorage.getItem('webUserDetail')).name
+        this.formFields.surname = JSON.parse(localStorage.getItem('webUserDetail')).surname
+        this.formFields.phone = JSON.parse(localStorage.getItem('webUserDetail')).phone
+        this.formFields.email = JSON.parse(localStorage.getItem('webUserDetail')).email
+      }
+    },
 
-         }
-      })
+    onSubmit()
+      {
+        let formData = new FormData()
+        formData.append('name', this.formFields.name)
+        formData.append('surname', this.formFields.surname)
+        formData.append('email', this.formFields.email)
+        formData.append('phone', this.formFields.phone)
+        formData.append('event_id', this.event.id)
+        formData.append('guestCustomer', this.formFields.guestCustomer)
+        this.$store.dispatch('MainModule/create', formData).then(res => {
+          if (res) {
+            this.showFormDialog = false
+            this.onReset()
+            this.$router.push({name: 'ReservationSuccess', params: {id: this.event.id}})
+
+          }
+        })
+
     },
     onReset(){
       this.formFields.phone = ''
