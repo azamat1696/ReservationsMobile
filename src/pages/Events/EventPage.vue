@@ -232,7 +232,8 @@ export default {
       this.formFields.email = ''
       this.formFields.surname = ''
       this.formFields.name = ''
-    }
+    },
+
   }
 
 }

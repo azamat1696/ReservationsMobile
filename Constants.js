@@ -1,6 +1,7 @@
+import {baseUrl} from "boot/baseUrl";
 const Constants = {
-  FILE_URL: "http://local.api.restaurant.com/uploads",
-  NO_IMG: "http://local.api.restaurant.com/uploads/no-image.jpg",
+  FILE_URL: baseUrl()+"/uploads",
+  NO_IMG: baseUrl()+"/uploads/no-image.jpg",
 };
 
 export default Constants;

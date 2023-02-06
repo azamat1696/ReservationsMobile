@@ -1,7 +1,7 @@
 <template>
   <q-header class="q-pa-sm body--light q-card--bordered shadow-1" style="border-radius: 0px 0px 20px 20px">
     <q-toolbar  class="justify-between">
-      <q-img src="/src/assets/icons/logo.png" :fit="'contain'"  height="45px" width="45px"  @click="this.$router.push('/')" class="q-mr-md"  />
+      <q-img src="~assets/logo/Grouplogo-light.png" :fit="'contain'"  height="45px" width="45px"  @click="this.$router.push('/')" class="q-mr-md"  />
 <!--      <q-input-->
 <!--        dense-->
 <!--        outlined-->
