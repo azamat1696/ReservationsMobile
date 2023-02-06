@@ -6,7 +6,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     meta: { requiresAuth : false },
     children: [
-      { path: '/', name:'root', component: () => import('pages/IndexPage.vue') },
+      { path: '', name:'root', component: () => import('pages/IndexPage.vue') },
       { path: 'events', name:'events', component: () => import('pages/Events/Index.vue') },
       { path: 'reservations', name:'Reservations', component: () => import('pages/Reservations/Reservations.vue') },
       { path: 'profile', name:'Profile', component: () => import('pages/Profile/Profile.vue') },
