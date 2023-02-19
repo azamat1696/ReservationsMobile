@@ -20,8 +20,8 @@ const mutations = {
 }
 
 const actions = {
-  login({commit,dispatch},payload){
-    return api.post('/customer/login',payload).then( res => {
+  async login({commit,dispatch},payload){
+    return await api.post('/customer/login',payload).then( res => {
       api.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
       commit('setToken',res.data.token)
       commit('setUserDetail',res.data.userDetail)
@@ -37,9 +37,7 @@ const actions = {
         message: 'Giriş Başarılı',
         icon: 'done'
       })
-      this.$router.push({path: '/locations'}).catch(er => {
-        console.log("Error on login",er)
-      })
+    return true
     }).catch( er => {
       Notify.create({
         color : 'negative',
@@ -49,7 +47,8 @@ const actions = {
         message : 'Sistem Hatası : '+er.message,
         icon : 'done'
       })
-      ErrorHandlePrint(er)
+
+     // ErrorHandlePrint(er)
     }).finally(fi => {
       console.log("Finally----")
     })

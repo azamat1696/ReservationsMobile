@@ -8,7 +8,10 @@
 
 <script>
 export default {
-  name: "AuthLayout"
+  name: "AuthLayout",
+  created() {
+    console.log("AuthLayout created")
+  }
 }
 </script>
 
