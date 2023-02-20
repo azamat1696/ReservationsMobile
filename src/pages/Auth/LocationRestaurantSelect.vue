@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHh lpR fFf">
-<!--  <div class="fullscreen flex flex-center" >-->
+  <div class="fullscreen flex flex-center" >
     <div>
     <header-layout />
     <div class="text-left"  style="background-repeat: no-repeat ;background-image: url('src/assets/logo/Groupbg-light.png'); min-width: 325px;min-height: 340px">
@@ -11,7 +11,7 @@
       </div>
     </div>
   </div>
-
+  </div>
 </q-layout >
 </template>
 

@@ -29,7 +29,7 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach((to,from,next) => {
       if( to.matched.some(record => record.meta.requiresAuth && !(LocalStorage.getItem('panelAuthToken') !== null && undefined)))
       {
-        next({path: '/auth/login',replace: true})
+        next({name: 'login',replace: true})
       }
       next()
   })

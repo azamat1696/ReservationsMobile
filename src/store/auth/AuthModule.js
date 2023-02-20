@@ -20,8 +20,8 @@ const mutations = {
 }
 
 const actions = {
-  login({commit,dispatch},payload){
-    return api.post('/customer/login',payload).then( res => {
+ async login({commit,dispatch},payload){
+    return await api.post('/customer/login',payload).then( res => {
       api.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.token
       commit('setToken',res.data.token)
       commit('setUserDetail',res.data.userDetail)
@@ -31,25 +31,23 @@ const actions = {
       localStorage.setItem('webLoginUserEmail',res.data.userDetail.email)
       Notify.create({
         color: 'positive',
-        position: 'top-right',
+        position: 'bottom',
         progress: true,
         timeout: 1000,
         message: 'Giriş Başarılı',
         icon: 'done'
       })
-      this.$router.push({path: '/locations'}).catch(er => {
-        console.log("Error on login",er)
-      })
+      return true
     }).catch( er => {
       Notify.create({
         color : 'negative',
-        position : 'center',
+        position : 'bottom',
         progress : true,
         timeout : 1500,
-        message : 'Sistem Hatası : '+er.message,
-        icon : 'done'
+        message : 'Giriş Başarısız',
+        icon : 'cancel'
       })
-      ErrorHandlePrint(er)
+      // ErrorHandlePrint(er)
     }).finally(fi => {
       console.log("Finally----")
     })
@@ -59,8 +57,14 @@ const actions = {
     localStorage.removeItem('webAuthToken')
     localStorage.removeItem('webUserDetail')
     localStorage.removeItem('webLoginUserEmail')
-    this.$router.replace('/').catch( er => {
-      console.log(er)
+    this.$router.push({name: 'login',replace: true})
+    Notify.create({
+      color: 'negative',
+      position: 'bottom',
+      progress: true,
+      timeout: 1000,
+      message: 'Çıkış Başarılı',
+      icon: 'cancel'
     })
   },
   initAuth({commit}){

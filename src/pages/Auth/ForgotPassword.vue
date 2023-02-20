@@ -1,17 +1,16 @@
 <template>
-  <div class="fullscreen" >
-    <div class="flex flex-center">
-      <div class="q-mt-lg q-pt-lg q-pb-lg text-center ">
+  <q-card class="fullscreen" >
+    <q-card-section class="q-mt-lg q-pt-lg q-pb-lg text-center ">
         <div class="text-h5">Geçici Şifre</div>
         <div class="text-subtitle1">E-posta hesabınızdan geçici şifre alınınız</div>
-      </div>
-      <div class="text-left"  :style="[ this.$q.dark.isActive ? { 'background':'url(\'../src/assets/logo/Groupbg-dark.png\') center  no-repeat','min-height':'340px',' min-width' : '325px' } : { 'background':'url(\'../src/assets/logo/Groupbg-light.png\') center no-repeat','min-height':'340px',' min-width' : '325px' }]">
+    </q-card-section>
+    <q-card-section :class="this.$q.dark.isActive ? 'dark-mode-bg-img flex flex-center' : 'light-mode-bg-img flex flex-center'">
         <q-form
           @submit="login"
         >
           <div class="q-mb-lg q-pl-lg q-pr-lg">
             <div class="text-subtitle2 q-pa-sm">E-posta</div>
-            <q-input outlined  dense v-model="email" color="grey"   rounded :input-class="[this.$q.dark.isActive ? 'text-subtitle1 text-white':'text-subtitle1  text-grey-9']" >
+            <q-input outlined  dense v-model="email" color="grey"   rounded :input-class="this.$q.dark.isActive ? 'text-subtitle1 text-white':'text-subtitle1  text-grey-9'" >
               <template v-slot:prepend>
                 <q-icon name="email"  color="red" />
               </template>
@@ -20,9 +19,8 @@
             <div class="text-caption text-center text-grey q-mt-lg flex cursor-pointer" @click="this.$router.push({name:'UserRegister'})" >Hesabınız yok mu? <div class="text-red">&nbsp &nbsp &nbsp &nbsp &nbsp Ücretsiz hesap açın</div></div>
           </div>
         </q-form>
-      </div>
-    </div>
-  </div>
+    </q-card-section>
+  </q-card>
 </template>
 
 <script>
@@ -51,6 +49,15 @@ export default {
 </script>
 
 <style scoped>
-
+.dark-mode-bg-img {
+  background: url('../src/assets/logo/Groupbg-dark.png') center no-repeat;
+  min-height: 340px;
+  min-width: 325px;
+}
+.light-mode-bg-img {
+  background: url('../src/assets/logo/Groupbg-light.png') center no-repeat;
+  min-height: 340px;
+  min-width: 325px;
+}
 </style>
 

@@ -5,7 +5,7 @@
         <router-view />
     </q-page-container>
 
-    <q-footer bordered style="border-radius: 20px 20px 0px 0px" class="shadow-1  ">
+    <q-footer bordered style="border-radius: 20px 20px 0px 0px" class="shadow-1">
     <q-tabs
     v-model="mainTabs"
     class="text-blue-grey-9"

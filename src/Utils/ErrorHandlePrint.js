@@ -3,7 +3,7 @@ import { routerInstance } from 'boot/customRouteInstance'
 export function ErrorHandlePrint (errorsObj) {
   const statusCode = errorsObj.response.status ? errorsObj.response.status : 401
   if (statusCode === 401) {
-    routerInstance.push('/auth/login')
+    routerInstance.push({name: 'login',replace: true})
     LocalStorage.remove('webLoginUserEmail')
     LocalStorage.remove('webAuthToken')
     LocalStorage.remove('webUserDetail')

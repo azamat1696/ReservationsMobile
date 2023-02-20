@@ -13,19 +13,24 @@ const routes = [
       { path: 'edit-profile', name:'EditProfile', component: () => import('pages/Profile/EditProfile.vue') },
     ]
   },
-  {
-    path: '/auth',
-    component: () => import('layouts/AuthLayout.vue'),
-    meta: { requiresAuth : false },
-    children: [
-      { path: 'login', name: 'login', component: import('pages/test/Index.vue')},
-      { path: 'locations', name: 'Locations', component: import('pages/test/LocationRestaurantSelect.vue')},
-      { path: 'register', name: 'UserRegister', component: import('pages/test/UserRegister.vue')},
-      { path: 'forgot-password', name: 'ForgotPassword', component: import('pages/test/ForgotPassword.vue')},
-      { path: 'test', name: 'test', component: import('pages/test/test.vue')},
-
-    ]
-  },
+  { path: '/login', name: 'login', component: import('pages/Auth/Login.vue')},
+  { path: '/locations', name: 'Locations', component: import('pages/Auth/LocationRestaurantSelect.vue')},
+  { path: '/register', name: 'UserRegister', component: import('pages/Auth/UserRegister.vue')},
+  { path: '/forgot-password', name: 'ForgotPassword', component: import('pages/Auth/ForgotPassword.vue')},
+  { path: '/test', name: 'test', component: import('pages/Auth/test.vue')},
+  // {
+  //   path: '/auth',
+  //   component: () => import('layouts/AuthLayout.vue'),
+  //   meta: { requiresAuth : false },
+  //   children: [
+  //     { path: 'login', name: 'login', component: import('pages/Auth/Login.vue')},
+  //     { path: 'locations', name: 'Locations', component: import('pages/Auth/LocationRestaurantSelect.vue')},
+  //     { path: 'register', name: 'UserRegister', component: import('pages/Auth/UserRegister.vue')},
+  //     { path: 'forgot-password', name: 'ForgotPassword', component: import('pages/Auth/ForgotPassword.vue')},
+  //     { path: 'test', name: 'test', component: import('pages/Auth/test.vue')},
+  //
+  //   ]
+  // },
   {
     path: '/places',
     component: () => import('layouts/PlacesLayout.vue'),

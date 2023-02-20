@@ -62,7 +62,7 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-close-popup dense  @click="this.$router.push({name: 'login'})" v-else>
+        <q-item clickable v-close-popup dense  @click="this.$router.push({name: 'login',replace:true})" v-else>
           <q-item-section >
             <q-item-label>Giriş Yapın</q-item-label>
           </q-item-section>

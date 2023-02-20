@@ -1,4 +1,4 @@
-package org.capacitor.quasar.app;
+package reservation.app;
 
 import android.os.Bundle;
 
@@ -18,10 +18,8 @@ public class MainActivity extends BridgeActivity {
       // Ex: add(TotallyAwesomePlugin.class);
     }});
 
-    if (BuildConfig.DEBUG) {
-      EnableHttpsSelfSigned.enable(this.bridge);
-    }
-      
+              
+
               
   }
 }
