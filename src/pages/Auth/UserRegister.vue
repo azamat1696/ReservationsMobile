@@ -145,12 +145,12 @@ export default {
 
 <style scoped>
 .dark-mode-bg-img {
-  background: url('../src/assets/logo/Groupbg-dark.png') center no-repeat;
+  background: url('/logo/Groupbg-dark.png') center no-repeat;
   min-height: 340px;
   min-width: 325px;
 }
 .light-mode-bg-img {
-  background: url('../src/assets/logo/Groupbg-light.png') center no-repeat;
+  background: url('/logo/Groupbg-light.png') center no-repeat;
   min-height: 340px;
   min-width: 325px;
 }

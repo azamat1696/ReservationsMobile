@@ -7,36 +7,30 @@ const routes = [
     meta: { requiresAuth : false },
     children: [
       { path: '', name:'root', component: () => import('pages/IndexPage.vue') },
-      { path: 'events', name:'events', component: () => import('pages/Events/Index.vue') },
-      { path: 'reservations', name:'Reservations', component: () => import('pages/Reservations/Reservations.vue') },
-      { path: 'profile', name:'Profile', component: () => import('pages/Profile/Profile.vue') },
+      { path: 'events', name:'events', component: () => import('pages/Events/EventsMain.vue') },
+      { path: 'reservations', name:'Reservations', component: () => import('pages/Reservations/ReservationsPage.vue') },
+      { path: 'profile', name:'Profile', component: () => import('pages/Profile/ProfilePage.vue') },
       { path: 'edit-profile', name:'EditProfile', component: () => import('pages/Profile/EditProfile.vue') },
     ]
   },
-  { path: '/login', name: 'login', component: import('pages/Auth/Login.vue')},
-  { path: '/locations', name: 'Locations', component: import('pages/Auth/LocationRestaurantSelect.vue')},
-  { path: '/register', name: 'UserRegister', component: import('pages/Auth/UserRegister.vue')},
-  { path: '/forgot-password', name: 'ForgotPassword', component: import('pages/Auth/ForgotPassword.vue')},
-  { path: '/test', name: 'test', component: import('pages/Auth/test.vue')},
-  // {
-  //   path: '/auth',
-  //   component: () => import('layouts/AuthLayout.vue'),
-  //   meta: { requiresAuth : false },
-  //   children: [
-  //     { path: 'login', name: 'login', component: import('pages/Auth/Login.vue')},
-  //     { path: 'locations', name: 'Locations', component: import('pages/Auth/LocationRestaurantSelect.vue')},
-  //     { path: 'register', name: 'UserRegister', component: import('pages/Auth/UserRegister.vue')},
-  //     { path: 'forgot-password', name: 'ForgotPassword', component: import('pages/Auth/ForgotPassword.vue')},
-  //     { path: 'test', name: 'test', component: import('pages/Auth/test.vue')},
-  //
-  //   ]
-  // },
+  {
+    path: '/auth',
+    component: () => import('layouts/AuthLayout.vue'),
+    meta: { requiresAuth : false },
+    children: [
+      { path: 'login', name: 'login', component: () => import('pages/Auth/LoginPage.vue')},
+      { path: 'locations', name: 'Locations', component: () => import('pages/Auth/LocationRestaurantSelect.vue')},
+      { path: 'register', name: 'UserRegister', component: () => import('pages/Auth/UserRegister.vue')},
+      { path: 'forgot-password', name: 'ForgotPassword', component: () => import('pages/Auth/ForgotPassword.vue')},
+      { path: 'test', name: 'test', component: () => import('pages/Auth/TestPage.vue')},
+    ]
+  },
   {
     path: '/places',
     component: () => import('layouts/PlacesLayout.vue'),
     meta: { requiresAuth : false },
     children: [
-      { path: 'restaurants', name:'places', component: () => import('pages/Places/Index.vue') },
+      { path: 'restaurants', name:'places', component: () => import('pages/Places/PlacesPage.vue') },
       { path: 'restaurant-profile/:id', name:'RestaurantProfile', component: () => import('pages/Home/RestaurantProfile.vue') },
     ]
   },

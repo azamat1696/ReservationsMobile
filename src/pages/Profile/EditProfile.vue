@@ -15,7 +15,7 @@
 
  <div class="row">
    <div class="col-12  q-pt-xs">
-     <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg']"> İsim</div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> İsim</div>
      <q-input
        dense
        v-model="name"
@@ -29,7 +29,7 @@
      </q-input>
    </div>
    <div class="col-12 q-pt-xs">
-     <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg']"> Soyisim</div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Soyisim</div>
      <q-input
        dense
        v-model="surname"
@@ -43,7 +43,7 @@
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
-     <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg']"> E-posta </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> E-posta </div>
      <q-input
        dense
        v-model="email"
@@ -57,7 +57,7 @@
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
-     <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg']"> Telefon  </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Telefon  </div>
      <q-input
        dense
        v-model="phone"
@@ -71,7 +71,7 @@
      </q-input>
    </div>
    <div class="col-12">
-     <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg']"> Şifre </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Şifre </div>
      <q-input
        dense
        v-model="password"
@@ -101,7 +101,7 @@
 <script>
 import { ref } from 'vue'
 export default {
-  name: "Profile",
+  name: "EditProfile",
   setup () {
     return {
       id: ref(''),

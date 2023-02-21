@@ -55,7 +55,6 @@ import { useQuasar } from "quasar";
 export default {
   name: "RestaurantCard",
   setup () {
-const $q = useQuasar();
     return {
       stars: ref(4),
       favorite: ref(false),
@@ -72,7 +71,6 @@ const $q = useQuasar();
   },
   computed: {
     restaurants(){
-
       return this.$store.getters['MainModule/restaurantsById'](localStorage.getItem('itemId'))
     }
   }
