@@ -1,0 +1,1 @@
+import{_ as o,H as t,j as r,I as a}from"./index.4a0b1d79.js";const s={name:"PlacesLayout"};function c(n,_,p,u,f,i){const e=t("router-view");return r(),a(e)}var m=o(s,[["render",c]]);export{m as default};

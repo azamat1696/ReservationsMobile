@@ -1,0 +1,7 @@
+{
+  "appId": "reservation.app",
+  "appName": "Mobile App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

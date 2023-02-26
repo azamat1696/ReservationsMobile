@@ -1,0 +1,1 @@
+import{_ as o,H as t,j as r,I as a}from"./index.53dd0972.js";const s={name:"PagesLayout"};function n(c,_,p,u,f,i){const e=t("router-view");return r(),a(e)}var d=o(s,[["render",n]]);export{d as default};

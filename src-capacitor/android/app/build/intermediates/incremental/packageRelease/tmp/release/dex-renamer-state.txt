@@ -1,0 +1,4 @@
+#Mon Feb 20 21:48:45 EET 2023
+base.0=C\:\\wamp64\\www\\RestaurantApps\\ReservationsMobile\\src-capacitor\\android\\app\\build\\intermediates\\dex\\release\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
