@@ -102,7 +102,7 @@
 
 <script>
 import { date } from "quasar"
-import Constants from "app/Constants";
+import Constants from "app/Constants.js";
 export default {
   name: "ReservationSuccessPage",
 
@@ -112,7 +112,7 @@ export default {
       date
     }
   },
-  created() {
+created() {
     this.$store.dispatch('MainModule/getAllEvents')
   },
 computed: {

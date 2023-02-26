@@ -208,8 +208,7 @@ export default {
       }
     },
 
-    onSubmit()
-      {
+    onSubmit() {
         let formData = new FormData()
         formData.append('name', this.formFields.name)
         formData.append('surname', this.formFields.surname)

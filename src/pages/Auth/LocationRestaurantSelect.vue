@@ -18,14 +18,13 @@
 <script>
 import {ref} from "vue";
 import HeaderLayout from "components/HeaderLayout.vue";
-import { useQuasar } from "quasar"
-export default {
+ export default {
   name: "LocationRestaurantSelect",
   components: {
     HeaderLayout
   },
   setup(){
-    const $q = useQuasar()
+
     return {
       fourth: ref(true),
       modelLocation: ref(null),
