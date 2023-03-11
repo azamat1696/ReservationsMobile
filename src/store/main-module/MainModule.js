@@ -9,8 +9,27 @@ const state = {
   events: [],
   reservations: [],
   sliders : [],
-  eventCustomers : []
-
+  eventCustomers : [],
+  localeOptions : [
+    {
+      id:1,
+      name:'Türkçe',
+      logo:'/src/assets/langs/tr.png',
+      value:'tr'
+    },
+    {
+      id:2,
+      name:'English',
+      logo:'/src/assets/langs/en.png',
+      value:'en'
+    },
+    {
+      id:3,
+      name:'Русский',
+      logo:'/src/assets/langs/ru.png',
+      value:'ru'
+    }
+  ],
 }
 const mutations = {
   SET_EVENT_CUSTOMERS(state,items){
@@ -112,7 +131,12 @@ const getters = {
   },
   getAllEventCustomers : (state) => (id) =>  {
     return state.eventCustomers.filter(el => el.customer_id === +id)
-  }
+  },
+  getLocaleLogo : (state) => (value) =>{
+    // let langFileName = state.localeOptions.find( l => l.value === value).logo
+    // return new URL(langFileName, import.meta.url)
+    return state.localeOptions.find( l => l.value === value).logo
+  },
 }
 
 export default {

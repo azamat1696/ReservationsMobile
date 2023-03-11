@@ -15,11 +15,11 @@
     </q-img>
 <q-card class="no-shadow">
   <q-card-section class="text-center">
-    <div class="text-subtitle1 text-grey-7 text-italic">Rezarvasyon oluşturuyorsunuz</div>
+    <div class="text-subtitle1 text-grey-7 text-italic">{{$t('create_reservation')}}</div>
   </q-card-section>
   <q-card-section class="q-pt-none">
     <div class="q-pa-xs">
-  <div class="text-subtitle2 text-grey-8 q-pl-sm q-ml-lg"> İsim soyisim  </div>
+  <div class="text-subtitle2 text-grey-8 q-pl-sm q-ml-lg"> {{ $t('name_surname')}}  </div>
   <q-input
     dense
     rounded
@@ -31,7 +31,7 @@
   </q-input>
   </div>
     <div class="q-pa-xs">
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> Telefon </div>
+      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('phone') }} </div>
       <q-input
         dense
         rounded
@@ -43,7 +43,7 @@
       </q-input>
     </div>
     <div>
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> Saat seç  </div>
+      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('select_time') }}  </div>
       <q-input
         dense
         rounded
@@ -55,7 +55,7 @@
       </q-input>
     </div>
     <div class="q-pa-xs">
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> Kişi sayısı seç </div>
+      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{$t('choose_number_of_people')}} </div>
       <q-input
         dense
         rounded
@@ -68,8 +68,8 @@
     </div>
   </q-card-section>
   <q-card-actions  class="flex justify-around q-mb-lg">
-     <q-btn label="Vazgeç" color="grey-8" rounded no-caps class="" style="min-width: 80px" :to="{ name: 'EventPage' }"   />
-     <q-btn label="Tamamla" color="red" rounded no-caps class="" style="min-width: 90px" :to="{name: 'ReservationSuccess'}"  />
+     <q-btn :label="$t('cancel')" color="grey-8" rounded no-caps class="" style="min-width: 80px" :to="{ name: 'EventPage' }"   />
+     <q-btn :label="$t('confirm')" color="red" rounded no-caps class="" style="min-width: 90px" :to="{name: 'ReservationSuccess'}"  />
   </q-card-actions>
 </q-card>
   </div>

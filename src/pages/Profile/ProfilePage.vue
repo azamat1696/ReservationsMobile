@@ -15,7 +15,7 @@
 
  <div class="row">
    <div class="col-12  q-pt-xs">
-     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> İsim</div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{$t('name')}} </div>
      <q-input
        dense
        v-model="name"
@@ -32,7 +32,7 @@
      </q-input>
    </div>
    <div class="col-12 q-pt-xs">
-     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Soyisim</div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{ $t('surname') }} </div>
      <q-input
        dense
        v-model="surname"
@@ -49,7 +49,7 @@
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
-     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> E-posta </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{ $t('email') }} </div>
      <q-input
        dense
        v-model="email"
@@ -66,7 +66,7 @@
      </q-input>
    </div>
    <div class="col-12  q-pt-xs">
-     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Telefon  </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{ $t('phone')}}  </div>
      <q-input
        dense
        v-model="phone"
@@ -84,7 +84,7 @@
      </q-input>
    </div>
    <div class="col-12">
-     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Şifre </div>
+     <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{$t('password')}} </div>
      <q-input
        dense
        v-model="password"
@@ -107,11 +107,11 @@
 
       <q-card-actions class="flex justify-around " v-if="email !== ''">
 <!--        <q-btn flat color="white" label="Çıkış Yapın" no-caps class="bg-red"  @click="this.$store.dispatch('AuthModule/logout')"   />-->
-        <q-btn flat color="white" label="Düzenleyin" no-caps class="bg-blue-grey-9" icon="auto_fix_high"  :to="{name: 'EditProfile'}"    />
+        <q-btn flat color="white" :label="$t('edit')" no-caps class="bg-blue-grey-9" icon="auto_fix_high"  :to="{name: 'EditProfile'}"    />
 
       </q-card-actions>
       <q-card-actions class="flex justify-around " v-else>
-        <q-btn flat color="white" label="Giriş Yap" no-caps class="bg-red"  icon-right="login" :to="{name: 'login'}"   />
+        <q-btn flat color="white" :label="$t('login')" no-caps class="bg-red"  icon-right="login" :to="{name: 'login'}"   />
       </q-card-actions>
 
     </q-card>

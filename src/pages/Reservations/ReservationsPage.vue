@@ -2,7 +2,7 @@
   <div class="q-pa-md row items-start q-gutter-md">
 
      <div class="col-12" v-if="event.length <= 0" >
-       <h5  class="text-center text-grey"> Rezervasyon bulunmamaktadır</h5>
+       <h5  class="text-center text-grey">{{$t('no_reservation')}}</h5>
      </div>
 
     <q-card class="my-card shadow-2" flat bordered v-for="(item,index) in event" :key="index" >
@@ -15,11 +15,15 @@
       </q-card-section>
       <q-card-actions align="around">
         <q-badge rounded color="blue-grey-9" class="q-pa-sm" > <q-icon name="calendar_month" color="white" size="xs" />
-          {{date.formatDate(item.StartDateTime,'D')+' - '+date.formatDate(item.EndDateTime,'D') +' '+date.formatDate(item.StartDateTime,'MMMM')+', '+date.formatDate(item.StartDateTime,'YYYY')}}
+          {{date.formatDate(item.StartDateTime,'D')
+          +' - '+date.formatDate(item.EndDateTime,'D')
+          +' '+date.formatDate(item.StartDateTime,'MMMM')
+          +', '+date.formatDate(item.StartDateTime,'YYYY')}}
         </q-badge>
 
-        <q-badge  rounded color="red" class="q-pa-sm"><q-icon name="schedule" color="white" size="xs" /> {{ date.formatDate(item.StartDateTime,'HH:mm')+ ' - ' +date.formatDate(item.EndDateTime,'HH:mm') }} </q-badge>
-        <q-btn flat  color="red" no-caps :to="{name: 'EventPage',params:{ id: item.id }}">Detay</q-btn>
+        <q-badge  rounded color="red" class="q-pa-sm"><q-icon name="schedule" color="white" size="xs" /> {{ date.formatDate(item.StartDateTime,'HH:mm')
+        + ' - ' +date.formatDate(item.EndDateTime,'HH:mm') }} </q-badge>
+        <q-btn flat  color="red" no-caps :to="{name: 'EventPage',params:{ id: item.id }}">{{$t('detail')}}</q-btn>
       </q-card-actions>
 
     </q-card>

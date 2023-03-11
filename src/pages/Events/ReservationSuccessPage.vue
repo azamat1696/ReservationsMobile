@@ -17,13 +17,13 @@
     </q-img>
     <q-card class="no-shadow">
       <q-card-section class="q-pb-none">
-          <div class="text-h6 q-pl-md q-pr-md text-center">Rezervasyon başarıyla oluşturuldu.</div>
+          <div class="text-h6 q-pl-md q-pr-md text-center">{{ $t('reservation_created_successfully')}}</div>
       </q-card-section>
       <q-card-section>
         <q-img src="/public/icons/success.png" :fit="'contain'"  height="150px"/>
       </q-card-section>
       <q-card-section class="q-pt-none">
-        <div class="text-subtitle2 text-grey-8 q-pl-md q-pr-md text-center">Rezervasyon başarıyla oluşturuldu.</div>
+        <div class="text-subtitle2 text-grey-8 q-pl-md q-pr-md text-center">{{ $t('reservation_created_successfully')}}</div>
       </q-card-section>
 
 <!--      <q-card-section class="bg-grey-3">-->
@@ -43,7 +43,7 @@
 <!--      </q-card-section>-->
 
       <q-card-section class="text-dark bg-white">
-        <div class="text-h6 text-dark q-pb-lg">Etkinlik Bilgileri</div>
+        <div class="text-h6 text-dark q-pb-lg">{{$t('event_info')}}</div>
         <q-list   >
 
           <q-item clickable v-ripple>

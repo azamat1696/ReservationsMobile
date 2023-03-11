@@ -7,8 +7,8 @@
     </q-card-section>
     <q-card-section class="flex flex-center">
         <div class="q-mt-lg q-pt-lg q-pb-lg text-center ">
-          <div class="text-h5">Hoş geldiniz!</div>
-          <div class="text-subtitle1">Hesab Oluşturun</div>
+          <div class="text-h5">{{$t('welcome')}}</div>
+          <div class="text-subtitle1">{{$t('create_account')}}</div>
         </div>
           <q-form
             @submit="onSubmit"
@@ -17,7 +17,7 @@
           >
 
               <div class="col-12  q-pt-xs">
-                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> İsim</div>
+                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'">{{$t('name')}}</div>
                 <q-input
                   color="grey"
                   dense
@@ -32,7 +32,7 @@
                 </q-input>
               </div>
               <div class="col-12 q-pt-xs">
-                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Soyisim</div>
+                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{$t('surname')}}</div>
                 <q-input
                   color="grey"
                   dense
@@ -47,7 +47,7 @@
                 </q-input>
               </div>
               <div class="col-12  q-pt-xs">
-                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> E-posta </div>
+                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'">{{$t('email')}}</div>
                 <q-input
                   color="grey"
                   dense
@@ -62,7 +62,7 @@
                 </q-input>
               </div>
               <div class="col-12  q-pt-xs">
-                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Telefon  </div>
+                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{$t('phone')}}</div>
                 <q-input
                   color="grey"
                   dense
@@ -77,7 +77,7 @@
                 </q-input>
               </div>
               <div class="col-12">
-                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> Şifre </div>
+                <div :class="this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white q-ml-lg' : 'text-subtitle2 q-pl-sm text-grey-8 q-ml-lg'"> {{ $t('password') }} </div>
                 <q-input
                   color="grey"
                   dense
@@ -95,7 +95,7 @@
 
               </div>
               <div class="col-10">
-                <q-btn class="full-width q-mt-lg" label="Kaydet" no-caps color="red"  type="submit"   rounded />
+                <q-btn class="full-width q-mt-lg" :label="$t('save')" no-caps color="red"  type="submit"   rounded />
               </div>
               <div class="col-1"></div>
           </q-form>

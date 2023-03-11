@@ -1,22 +1,22 @@
 <template>
   <q-card class="fullscreen" >
     <q-card-section class="q-mt-lg q-pt-lg q-pb-lg text-center ">
-        <div class="text-h5">Geçici Şifre</div>
-        <div class="text-subtitle1">E-posta hesabınızdan geçici şifre alınınız</div>
+        <div class="text-h5">{{$t('temporary_password')}}</div>
+        <div class="text-subtitle1">{{$t('get_temporary_password')}}</div>
     </q-card-section>
     <q-card-section :class="this.$q.dark.isActive ? 'dark-mode-bg-img flex flex-center' : 'light-mode-bg-img flex flex-center'">
         <q-form
           @submit="login"
         >
           <div class="q-mb-lg q-pl-lg q-pr-lg">
-            <div class="text-subtitle2 q-pa-sm">E-posta</div>
+            <div class="text-subtitle2 q-pa-sm">{{$t('email')}}</div>
             <q-input outlined  dense v-model="email" color="grey"   rounded :input-class="this.$q.dark.isActive ? 'text-subtitle1 text-white':'text-subtitle1  text-grey-9'" >
               <template v-slot:prepend>
                 <q-icon name="email"  color="red" />
               </template>
             </q-input>
-            <q-btn class="full-width q-mt-lg" label="Gönder" no-caps color="red"  type="submit"  rounded />
-            <div class="text-caption text-center text-grey q-mt-lg flex cursor-pointer" @click="this.$router.push({name:'UserRegister'})" >Hesabınız yok mu? <div class="text-red">&nbsp &nbsp &nbsp &nbsp &nbsp Ücretsiz hesap açın</div></div>
+            <q-btn class="full-width q-mt-lg" :label="$t('send')" no-caps color="red"  type="submit"  rounded />
+            <div class="text-caption text-center text-grey q-mt-lg flex cursor-pointer" @click="this.$router.push({name:'UserRegister'})" >{{$t('no_account')}} <div class="text-red">&nbsp &nbsp &nbsp &nbsp &nbsp {{ $t('free_open_account')}}</div></div>
           </div>
         </q-form>
     </q-card-section>

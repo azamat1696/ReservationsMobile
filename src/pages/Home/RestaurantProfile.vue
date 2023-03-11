@@ -28,8 +28,8 @@
         align="justify"
         narrow-indicator
       >
-        <q-tab name="restaurantInfo" no-caps label="Mekan bilgileri" />
-        <q-tab name="restaurantInfoLocation" no-caps label="Mekan konumu" />
+        <q-tab name="restaurantInfo" no-caps :label="$t('place_info')" />
+        <q-tab name="restaurantInfoLocation" no-caps :label="$t('place_location')" />
       </q-tabs>
       <q-separator />
       <q-tab-panels v-model="tab" animated>
@@ -44,7 +44,7 @@
         </q-tab-panel>
       </q-tab-panels>
       <q-card-section  :class="[this.$q.dark.isActive ? 'text-subtitle1 bg-dark text-white':'text-subtitle1  text-grey-9 bg-primary']">
-        <div class="text-h6   q-pb-lg">Restoran Bilgileri</div>
+        <div class="text-h6   q-pb-lg">{{$t('place_info')}}</div>
         <q-list   >
 
           <q-item clickable v-ripple>

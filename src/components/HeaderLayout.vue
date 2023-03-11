@@ -18,20 +18,22 @@
 <!--      </q-input>-->
 
 <div>
+
   <q-btn-dropdown dropdown-icon="menu" size="lg"  flat  dense color="blue-grey-9" :content-style="{padding:'0px'}">
     <q-list>
-      <q-item clickable v-close-popup dense >
+      <q-item clickable v-close-popup dense @click="changeLang('tr')">
         <q-item-section>
-          <q-item-label>TR</q-item-label>
+             <q-item-label>TR</q-item-label>
+
         </q-item-section>
       </q-item>
 
-      <q-item clickable v-close-popup dense>
+      <q-item clickable v-close-popup dense @click="changeLang('en')">
         <q-item-section>
           <q-item-label>EN</q-item-label>
         </q-item-section>
       </q-item>
-      <q-item clickable v-close-popup dense>
+      <q-item clickable v-close-popup dense @click="changeLang('ru')">
         <q-item-section>
           <q-item-label>RU</q-item-label>
         </q-item-section>
@@ -78,13 +80,17 @@
 
 <script>
 import {ref} from "vue";
+import {useI18n} from "vue-i18n";
 
 export default {
   name: "HeaderLayout",
   setup(){
-
+const { locale } = useI18n({ useScope: 'global' })
+    console.log(locale.value)
     return {
-      fourth: ref(true)
+      fourth: ref(true),
+      locale,
+
     }
   },
   methods: {
@@ -99,10 +105,17 @@ export default {
     },
     darkModeFunc(event){
       this.$q.dark.toggle()
-    }
+    },
+     changeLang(lang){
+        this.locale = lang
+      }
   },
+
   mounted() {
     this.checkAuth()
+  },
+  computed:{
+
   }
 }
 </script>

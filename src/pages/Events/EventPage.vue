@@ -25,8 +25,8 @@
        align="justify"
        narrow-indicator
      >
-       <q-tab name="restaurantInfo" no-caps label="Etkinlik bilgileri" />
-       <q-tab name="restaurantInfoLocation" no-caps label="Etkinlik konumu" />
+       <q-tab name="restaurantInfo" no-caps :label="$t('event_info')" />
+       <q-tab name="restaurantInfoLocation" no-caps :label="$t('event_location')" />
      </q-tabs>
      <q-separator />
      <q-tab-panels v-model="tab" animated>
@@ -43,8 +43,8 @@
      </q-tab-panels>
    </q-card>
    <q-card-section>
-     <q-btn color="grey-4" text-color="black" label="İletişime geçin" href="tel:123-456-7890" no-caps  class="full-width q-mt-lg" style="border-radius: 16px"/>
-     <q-btn color="red" text-color="white" label="Rezervasyon yapın" no-caps  class="full-width q-mt-lg" style="border-radius: 16px" @click="showDialog"/>
+     <q-btn color="grey-4" text-color="black" :label="$t('contact_us')" href="tel:123-456-7890" no-caps  class="full-width q-mt-lg" style="border-radius: 16px"/>
+     <q-btn color="red" text-color="white" :label="$t('make_reservation')" no-caps  class="full-width q-mt-lg" style="border-radius: 16px" @click="showDialog"/>
    </q-card-section>
    <q-card>
 
@@ -52,10 +52,10 @@
    <q-dialog   v-model="showFormDialog" persistent  style="z-index: 999!important;">
      <q-card  class="no-padding" style="min-width: 350px">
        <q-bar class=" bg-blue-grey-9 text-white" style="height: 50px">
-         <div class="text-h4"  >Yeni Rezervasyon Oluştur</div>
+         <div class="text-h4"  >{{$t('create_reservation')}}</div>
          <q-space />
          <q-btn dense flat icon="close" v-close-popup @click="onReset">
-           <q-tooltip>Kapat</q-tooltip>
+           <q-tooltip>{{$t('close')}}</q-tooltip>
          </q-btn>
        </q-bar>
 
@@ -70,7 +70,7 @@
              </q-card-section>
              <q-card-section class="q-pt-none row">
                <div class="q-pa-xs col-12">
-                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8 ']"> İsim   </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8 ']"> {{$t('name')}}   </div>
                  <q-input
                    dense
                    outlined
@@ -84,7 +84,7 @@
                  </q-input>
                </div>
                <div class="q-pa-xs col-12">
-                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Soyisim  </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> {{$t('surname')}}  </div>
                  <q-input
                    dense
                    outlined
@@ -98,7 +98,7 @@
                  </q-input>
                </div>
                <div class="q-pa-xs col-12">
-                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Telefon </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> {{ $t('phone') }} </div>
                  <q-input
                    dense
                    outlined
@@ -126,7 +126,7 @@
                  </q-input>
                </div>
                <div  class="q-pa-xs col-12">
-                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> Gelecek kişi sayısı</div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> {{$t('number_of_people_to_come')}}</div>
                  <q-input
                    dense
                    outlined

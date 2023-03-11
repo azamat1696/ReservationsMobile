@@ -7,7 +7,7 @@
       <div class="q-mt-lg q-pl-lg q-pr-lg">
         <q-select color="dark" label-color="dark"  v-model="modelLocation" :options="locationOptions" label="Bölge Seç" input-style="padding-left:5px"  clearable   bg-color="grey-1" dense  rounded outlined  />
         <q-select color="dark" label-color="dark" v-model="modelRestaurant" :options="restaurantOptions" label="Restaurant Seç" class="q-mt-lg"  clearable  bg-color="grey-1" dense   rounded outlined  />
-        <q-btn class="full-width q-mt-lg" label="Sonuçları Listele" no-caps color="red"   :to="{name:'root'}" size="15px" rounded />
+        <q-btn class="full-width q-mt-lg" :label="$t('show_result')" no-caps color="red"   :to="{name:'root'}" size="15px" rounded />
       </div>
     </div>
   </div>
