@@ -1,5 +1,6 @@
 <template>
   <div class="q-pa-xs q-pt-sm">
+  <h1></h1>
 <CarouselEvents />
     <div class="q-pa-md q-pt-md-md">
 <EventCategory :event-categories="eventCategories" />
