@@ -1,7 +1,7 @@
 <template>
-<div class="row">
+<div class="row" @click="this.$router.push({name : 'EventPage',params:{ id: detail.id }})">
   <q-img  :src="Constants.FILE_URL+'/eventBanners/'+detail.Banner" class="q-card--bordered q-mt-sm" height="150px" style="border-radius: 20px">
-    <div class="absolute-bottom bg-transparent cursor-pointer" @click="this.$router.push({name : 'EventPage',params:{ id: detail.id }})">
+    <div class="absolute-bottom bg-transparent cursor-pointer" >
       <div class="text-caption text-shadow">
         {{date.formatDate(detail.StartDateTime,'D')+' - '+date.formatDate(detail.EndDateTime,'D') +' '+date.formatDate(detail.StartDateTime,'MMMM')+', '+date.formatDate(detail.StartDateTime,'YYYY')}}
 

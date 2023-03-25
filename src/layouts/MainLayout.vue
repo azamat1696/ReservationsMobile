@@ -10,7 +10,7 @@
     v-model="mainTabs"
     class="text-blue-grey-9 no-wrap"
     >
- <q-route-tab no-caps name="home" icon="home" :to="{name: 'root'}" exact :label="$t('home_page')" class="text-blue-grey-9" content-class="q-pa-none"/>
+ <q-route-tab no-caps name="home" icon="home" :to="{name: 'root'}" exact :label="$t('home_page')" class="text-blue-grey-9"  content-class="q-pa-none"/>
  <q-route-tab no-caps name="events" icon="event" :to="{ name: 'events' }" exact  :label="$t('event')" class="text-blue-grey-9" content-class="q-pa-none"/>
  <q-route-tab no-caps name="reservations" :to="{ name: 'Reservations' }" icon="book_online" :label="$t('reservation')" class="text-blue-grey-9" content-class="q-pa-none"/>
  <q-route-tab no-caps name="profile" :to="{ name: 'Profile'}" icon="person" :label="$t('profile')" class="text-blue-grey-9" content-class="q-pa-none"/>

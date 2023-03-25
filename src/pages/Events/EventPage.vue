@@ -2,7 +2,7 @@
  <div>
    <q-img  :src="Constants.FILE_URL+'/eventBanners/'+event.Banner" class="q-card--bordered" height="250px" >
      <div class="absolute-top-left bg-transparent">
-       <router-link  :to="{name:'Reservations'}">
+       <router-link  :to="{name:'events'}">
          <q-icon name="arrow_back" size="md" color="white" class="cursor-pointer"/>
        </router-link>
      </div>

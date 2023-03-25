@@ -1,5 +1,12 @@
 <template>
   <q-header class="q-pa-sm body--light q-card--bordered shadow-1" style="border-radius: 0px 0px 20px 20px">
+    <v-google-translate
+      :defaultLanguageCode="defaultLanguageCode"
+      :defaultPageLanguageCode="defaultPageLanguageCode"
+      :fetchBrowserLanguage="false"
+      @select="languageSelectedHandler"
+    />
+    <div ref="testSourceLanguage" class="notranslate">
     <q-toolbar  class="justify-between">
       <q-img src="~assets/logo/Grouplogo-light.png" :fit="'contain'"  height="45px" width="45px"  @click="this.$router.push('/')" class="q-mr-md"  />
 <!--      <q-input-->
@@ -18,7 +25,7 @@
 <!--      </q-input>-->
 
 <div>
-
+  <Translator/>
   <q-btn-dropdown dropdown-icon="menu" size="lg"  flat  dense color="blue-grey-9" :content-style="{padding:'0px'}">
     <q-list>
       <q-item clickable v-close-popup dense @click="changeLang('tr')">
@@ -75,14 +82,14 @@
   </q-btn>
 </div>
     </q-toolbar>
+    </div>
   </q-header>
 </template>
 
 <script>
 import {ref} from "vue";
 import {useI18n} from "vue-i18n";
-
-export default {
+ export default {
   name: "HeaderLayout",
   setup(){
 const { locale } = useI18n({ useScope: 'global' })
@@ -90,6 +97,8 @@ const { locale } = useI18n({ useScope: 'global' })
     return {
       fourth: ref(true),
       locale,
+      defaultLanguageCode: "en",
+      defaultPageLanguageCode: "zh-CN",
 
     }
   },
@@ -108,11 +117,21 @@ const { locale } = useI18n({ useScope: 'global' })
     },
      changeLang(lang){
         this.locale = lang
-      }
+      },
+    languageSelectedHandler(info) {
+      console.log(">>>>>>", info);
+    },
   },
 
   mounted() {
     this.checkAuth()
+    setTimeout(() => {
+      const testSourceLanguageEl = this.$refs.testSourceLanguage;
+      console.log(testSourceLanguageEl);
+      if (testSourceLanguageEl.classList.contains("notranslate")) {
+        testSourceLanguageEl.classList.remove("notranslate");
+      }
+    }, 2000);
   },
   computed:{
 
