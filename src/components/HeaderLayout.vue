@@ -1,79 +1,127 @@
 <template>
   <q-header class="q-pa-sm body--light q-card--bordered shadow-1" style="border-radius: 0px 0px 20px 20px">
-    <v-google-translate
-      :defaultLanguageCode="defaultLanguageCode"
-      :defaultPageLanguageCode="defaultPageLanguageCode"
-      :fetchBrowserLanguage="false"
-      @select="languageSelectedHandler"
-    />
-    <div ref="testSourceLanguage" class="notranslate">
+<!--    <v-google-translate-->
+<!--      :defaultLanguageCode="defaultLanguageCode"-->
+<!--      :defaultPageLanguageCode="defaultPageLanguageCode"-->
+<!--      :fetchBrowserLanguage="false"-->
+<!--      @select="languageSelectedHandler"-->
+<!--    />-->
+
     <q-toolbar  class="justify-between">
       <q-img src="~assets/logo/Grouplogo-light.png" :fit="'contain'"  height="45px" width="45px"  @click="this.$router.push('/')" class="q-mr-md"  />
-<!--      <q-input-->
-<!--        dense-->
-<!--        outlined-->
-<!--        rounded-->
-<!--        placeholder="Etkinlik, Club ara..."-->
-<!--        input-class=" text-subtitle2"-->
-<!--        color="blue-grey-9"-->
-<!--        bg-color="blue-grey-0"-->
-<!--        class="q-pa-none full-width"-->
-<!--      >-->
-<!--        <template v-slot:append>-->
-<!--          <q-icon name="search" />-->
-<!--        </template>-->
-<!--      </q-input>-->
+     <div class="row">
+         <div class="col-12">
+           <q-input
+           dense
+           outlined
+           rounded
+           v-model="searchParams"
+           color="grey-9"
+           :placeholder="$t('search_event')"
+           :class="this.$q.dark.isActive ? 'text-subtitle1 text-grey-9 q-pa-none full-width':'text-subtitle1  text-grey-9 q-pa-none full-width'"
+           :input-class="this.$q.dark.isActive ? 'text-subtitle1 text-dark ':'text-subtitle1  text-grey-9'"
+           @update:model-value="searchEvent"
+           clearable
+         >
+           <template v-slot:append>
+             <q-icon name="search" :class="this.$q.dark.isActive ? ' text-grey-9':'text-grey-9'" />
+           </template>
+         </q-input>
+         </div>
+         <div class="col-8 absolute q-mt-xl text-blue-grey-9 bg-white rounded-borders" v-show="isSeachExist">
+           <q-list >
 
-<div>
-  <Translator/>
-  <q-btn-dropdown dropdown-icon="menu" size="lg"  flat  dense color="blue-grey-9" :content-style="{padding:'0px'}">
-    <q-list>
-      <q-item clickable v-close-popup dense @click="changeLang('tr')">
-        <q-item-section>
-             <q-item-label>TR</q-item-label>
+             <q-item clickable v-close-popup dense   v-for="(event,i) in fiteredEvents" :key="i"  @click="this.$router.push({name : 'EventPage',params:{ id: event.id }})">
+               <q-item-section :key="i" >
+                 <q-item-label :class="this.$q.dark.isActive ? 'text-subtitle2 text-blue-grey-9  ':'text-subtitle2 text-blue-grey-9 '">{{event.EventName}}</q-item-label>
+               </q-item-section>
+             </q-item>
 
-        </q-item-section>
-      </q-item>
+           </q-list>
+         </div>
+     </div>
 
-      <q-item clickable v-close-popup dense @click="changeLang('en')">
-        <q-item-section>
-          <q-item-label>EN</q-item-label>
-        </q-item-section>
-      </q-item>
-      <q-item clickable v-close-popup dense @click="changeLang('ru')">
-        <q-item-section>
-          <q-item-label>RU</q-item-label>
-        </q-item-section>
-      </q-item>
-      <q-item dense>
-        <q-item-section>
-          <q-toggle
-            v-model="fourth"
-            checked-icon="light_mode"
-            color="red"
-            unchecked-icon="dark_mode"
-            size="xl"
-            dense
-            @update:model-value="darkModeFunc"
-          />
-        </q-item-section>
-      </q-item>
-    </q-list>
+   <div>
 
-  </q-btn-dropdown>
+<!--  <q-btn-dropdown dropdown-icon="menu" size="lg"  flat  dense color="blue-grey-9" :content-style="{padding:'0px'}">-->
+<!--    <q-list>-->
+<!--      <q-item clickable v-close-popup dense @click="changeLang('tr')">-->
+<!--        <q-item-section>-->
+<!--             <q-item-label>TR</q-item-label>-->
+
+<!--        </q-item-section>-->
+<!--      </q-item>-->
+
+<!--      <q-item clickable v-close-popup dense @click="changeLang('en')">-->
+<!--        <q-item-section>-->
+<!--          <q-item-label>EN</q-item-label>-->
+<!--        </q-item-section>-->
+<!--      </q-item>-->
+<!--      <q-item clickable v-close-popup dense @click="changeLang('ru')">-->
+<!--        <q-item-section>-->
+<!--          <q-item-label>RU</q-item-label>-->
+<!--        </q-item-section>-->
+<!--      </q-item>-->
+<!--      <q-item dense>-->
+<!--        <q-item-section>-->
+<!--          <q-toggle-->
+<!--            v-model="fourth"-->
+<!--            checked-icon="light_mode"-->
+<!--            color="red"-->
+<!--            unchecked-icon="dark_mode"-->
+<!--            size="xl"-->
+<!--            dense-->
+<!--            @update:model-value="darkModeFunc"-->
+<!--          />-->
+<!--        </q-item-section>-->
+<!--      </q-item>-->
+<!--    </q-list>-->
+
+<!--  </q-btn-dropdown>-->
 
   <q-btn icon="account_circle"  size="lg"  flat dense color="blue-grey-9">
     <q-menu fit>
       <q-list >
         <q-item clickable v-close-popup dense v-if="checkAuth()"  @click="this.$store.dispatch('AuthModule/logout')">
           <q-item-section>
-            <q-item-label class="flex flex-center">Çıkış Yapın</q-item-label>
+            <q-item-label class="flex flex-center">{{$t('logout')}}</q-item-label>
           </q-item-section>
         </q-item>
 
         <q-item clickable v-close-popup dense  @click="this.$router.push({name: 'login',replace:true})" v-else>
           <q-item-section >
-            <q-item-label>Giriş Yapın</q-item-label>
+            <q-item-label>{{$t('login')}}</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup dense @click="changeLang('tr')">
+          <q-item-section>
+            <q-item-label>TR</q-item-label>
+
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable v-close-popup dense @click="changeLang('en')">
+          <q-item-section>
+            <q-item-label>EN</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-close-popup dense @click="changeLang('ru')">
+          <q-item-section>
+            <q-item-label>RU</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item dense>
+          <q-item-section>
+            <q-toggle
+              v-model="fourth"
+              checked-icon="light_mode"
+              color="red"
+              unchecked-icon="dark_mode"
+              size="xl"
+              dense
+              @update:model-value="darkModeFunc"
+            />
           </q-item-section>
         </q-item>
 
@@ -82,7 +130,7 @@
   </q-btn>
 </div>
     </q-toolbar>
-    </div>
+
   </q-header>
 </template>
 
@@ -93,12 +141,13 @@ import {useI18n} from "vue-i18n";
   name: "HeaderLayout",
   setup(){
 const { locale } = useI18n({ useScope: 'global' })
-    console.log(locale.value)
+
     return {
       fourth: ref(true),
       locale,
-      defaultLanguageCode: "en",
-      defaultPageLanguageCode: "zh-CN",
+      fiteredEvents:ref([]),
+      isSeachExist:ref(false),
+      searchParams:ref(""),
 
     }
   },
@@ -118,27 +167,35 @@ const { locale } = useI18n({ useScope: 'global' })
      changeLang(lang){
         this.locale = lang
       },
-    languageSelectedHandler(info) {
-      console.log(">>>>>>", info);
-    },
+     searchEvent(data){
+
+      if(this.searchParams?.length > 0 && data !== ''){
+
+        this.isSeachExist = true
+        this.fiteredEvents = this.events.filter((item)=>{
+          return item.EventName.toLowerCase().includes(data.toLowerCase())
+        })
+      }else {
+        this.isSeachExist = false
+      }
+    }
   },
+
 
   mounted() {
     this.checkAuth()
-    setTimeout(() => {
-      const testSourceLanguageEl = this.$refs.testSourceLanguage;
-      console.log(testSourceLanguageEl);
-      if (testSourceLanguageEl.classList.contains("notranslate")) {
-        testSourceLanguageEl.classList.remove("notranslate");
-      }
-    }, 2000);
+    this.$store.dispatch('MainModule/getAllEvents')
   },
   computed:{
-
+       events(){
+         return this.$store.getters['MainModule/events']
+       }
   }
 }
 </script>
 
-<style scoped>
-
+<style>
+.q-field__control:before {
+  border: 1px solid rgba(0, 0, 0, 0.24) !important;
+}
 </style>

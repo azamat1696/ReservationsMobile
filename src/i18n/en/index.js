@@ -41,4 +41,6 @@ export default {
   edit: 'Edit',
   no_reservation: 'No Reservation Found',
   detail: 'Detail',
+  logout: 'Log Out',
+  search_event: 'Search Event',
 }

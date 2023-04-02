@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
   <div>
     <q-img  :src="Constants.FILE_URL+'/eventBanners/'+event.Banner" class="q-card--bordered" height="250px" >
       <div class="absolute-top-left bg-transparent">
@@ -98,6 +103,7 @@
 
     </q-card>
   </div>
+  </transition>
 </template>
 
 <script>

@@ -1,5 +1,10 @@
 <template>
-<q-card class="flex flex-center no-shadow">
+  <transition-group
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
+<q-card key="loginPage" class="flex flex-center no-shadow">
    <q-card-section >
     <div class="q-mt-lg q-pt-lg q-pb-lg text-center">
       <div class="text-h5">{{$t('welcome')}}</div>
@@ -29,7 +34,7 @@
         </q-form>
    </q-card-section>
 </q-card>
-
+  </transition-group>
 </template>
 
 <script>

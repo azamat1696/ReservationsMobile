@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
  <div>
    <q-img  :src="Constants.FILE_URL+'/eventBanners/'+event.Banner" class="q-card--bordered" height="250px" >
      <div class="absolute-top-left bg-transparent">
@@ -74,9 +79,10 @@
                  <q-input
                    dense
                    outlined
-                   :lazy-rules="true"
+                   lazy-rules
                    hide-bottom-space
                    v-model="formFields.name"
+                   :rules="[val => val.length > 0 ]"
                  >
                    <template v-slot:prepend>
                      <q-icon name="person"  color="red" />
@@ -88,9 +94,10 @@
                  <q-input
                    dense
                    outlined
-                   :lazy-rules="true"
+                   lazy-rules
                    hide-bottom-space
                    v-model="formFields.surname"
+                   :rules="[val => val.length > 0 ]"
                  >
                    <template v-slot:prepend>
                      <q-icon name="people"  color="red"/>
@@ -102,9 +109,10 @@
                  <q-input
                    dense
                    outlined
-                   :lazy-rules="true"
+                   lazy-rules
                    hide-bottom-space
                    v-model="formFields.phone"
+                   :rules="[val => val.length > 0 ]"
                  >
                    <template v-slot:prepend>
                      <q-icon name="phone_iphone"  color="red" />
@@ -112,13 +120,15 @@
                  </q-input>
                </div>
                <div  class="q-pa-xs col-12">
-                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> E-posta </div>
+                 <div :class="[this.$q.dark.isActive ? 'text-subtitle2 q-pl-sm text-white  ' : 'text-subtitle2 q-pl-sm text-grey-8  ']"> {{$t('email')}} </div>
                  <q-input
                    dense
                    outlined
-                   :lazy-rules="true"
+                   type="email"
+                   lazy-rules
                    hide-bottom-space
                    v-model="formFields.email"
+                   :rules="[val => val.length > 0 ]"
                  >
                    <template v-slot:prepend>
                      <q-icon name="alternate_email"  color="red"/>
@@ -130,10 +140,11 @@
                  <q-input
                    dense
                    outlined
-                   :lazy-rules="true"
+                   lazy-rules
                    hide-bottom-space
                    type="number"
                    v-model="formFields.guestCustomer"
+                   :rules="[val => val.length > 0 ]"
                  >
 
                  </q-input>
@@ -141,8 +152,8 @@
 
              </q-card-section>
              <q-card-section class="text-right flex justify-between" >
-               <q-btn label="Vazgeç" color="grey-8"   no-caps class="" style="min-width: 80px"  @click="onReset"   />
-               <q-btn label="Kaydet" color="red"   no-caps class="" style="min-width: 90px" type="submit" />
+               <q-btn :label="$t('cancel')" color="grey-8"   no-caps class="" style="min-width: 80px"  @click="onReset"   />
+               <q-btn :label="$t('confirm')" color="red"   no-caps class="" style="min-width: 90px" type="submit" />
              </q-card-section>
            </q-card>
 
@@ -154,6 +165,7 @@
    </q-dialog>
 
  </div>
+  </transition>
 </template>
 <script>
 import { ref } from "vue"
@@ -231,6 +243,7 @@ export default {
       this.formFields.email = ''
       this.formFields.surname = ''
       this.formFields.name = ''
+      this.showFormDialog = false
     },
 
   }

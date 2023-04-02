@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
   <div >
     <q-img  :src="Constants.FILE_URL+'/banners/'+restaurant.Banner" class="q-card--bordered" height="250px" >
       <div class="absolute-top-left bg-transparent">
@@ -91,6 +96,7 @@
 
 
   </div>
+  </transition>
 </template>
 <script>
 import { ref } from "vue"

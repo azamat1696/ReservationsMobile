@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
   <div class="row q-pt-lg q-mt-lg">
     <q-card  flat>
       <q-item class="flex flex-center">
@@ -116,6 +121,7 @@
 
     </q-card>
   </div>
+  </transition>
 </template>
 
 <script>

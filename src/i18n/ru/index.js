@@ -41,4 +41,6 @@ export default {
   edit: 'Редактировать',
   no_reservation: 'Бронь не найдена',
   detail: 'Детали',
+  logout: 'Выйти',
+  search_event: 'Поиск события',
 }

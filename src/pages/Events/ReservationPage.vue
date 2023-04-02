@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
   <div>
     <q-img  src="/icons/haluk-levent-les-ambassadeurs-1920x1920.jpg" class="q-card--bordered" height="250px" >
       <div class="absolute-top-left bg-transparent">
@@ -18,66 +23,76 @@
     <div class="text-subtitle1 text-grey-7 text-italic">{{$t('create_reservation')}}</div>
   </q-card-section>
   <q-card-section class="q-pt-none">
-    <div class="q-pa-xs">
-  <div class="text-subtitle2 text-grey-8 q-pl-sm q-ml-lg"> {{ $t('name_surname')}}  </div>
-  <q-input
-    dense
-    rounded
-    outlined
-    :lazy-rules="true"
-    hide-bottom-space
-    class="q-pr-lg q-pl-lg"
-  >
-  </q-input>
+<q-form @submit="submitNewReservation">
+  <div class="q-pa-xs">
+    <div class="text-subtitle2 text-grey-8 q-pl-sm q-ml-lg"> {{ $t('name_surname')}}  </div>
+    <q-input
+      dense
+      rounded
+      outlined
+      :lazy-rules="true"
+      hide-bottom-space
+      class="q-pr-lg q-pl-lg"
+    >
+    </q-input>
   </div>
-    <div class="q-pa-xs">
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('phone') }} </div>
-      <q-input
-        dense
-        rounded
-        outlined
-        :lazy-rules="true"
-        hide-bottom-space
-        class="q-pr-lg q-pl-lg"
-      >
-      </q-input>
-    </div>
-    <div>
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('select_time') }}  </div>
-      <q-input
-        dense
-        rounded
-        outlined
-        :lazy-rules="true"
-        hide-bottom-space
-        class="q-pr-lg q-pl-lg"
-      >
-      </q-input>
-    </div>
-    <div class="q-pa-xs">
-      <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{$t('choose_number_of_people')}} </div>
-      <q-input
-        dense
-        rounded
-        outlined
-        :lazy-rules="true"
-        hide-bottom-space
-        class="q-pr-lg q-pl-lg"
-      >
-      </q-input>
-    </div>
+  <div class="q-pa-xs">
+    <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('phone') }} </div>
+    <q-input
+      dense
+      rounded
+      outlined
+      :lazy-rules="true"
+      hide-bottom-space
+      class="q-pr-lg q-pl-lg"
+    >
+    </q-input>
+  </div>
+  <div>
+    <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{ $t('select_time') }}  </div>
+    <q-input
+      dense
+      rounded
+      outlined
+      :lazy-rules="true"
+      hide-bottom-space
+      class="q-pr-lg q-pl-lg"
+    >
+    </q-input>
+  </div>
+  <div class="q-pa-xs">
+    <div class="text-subtitle2 q-pl-sm text-grey-8 q-ml-lg"> {{$t('choose_number_of_people')}} </div>
+    <q-input
+      dense
+      rounded
+      outlined
+      :lazy-rules="true"
+      hide-bottom-space
+      class="q-pr-lg q-pl-lg"
+    >
+    </q-input>
+  </div>
+</q-form>
   </q-card-section>
   <q-card-actions  class="flex justify-around q-mb-lg">
      <q-btn :label="$t('cancel')" color="grey-8" rounded no-caps class="" style="min-width: 80px" :to="{ name: 'EventPage' }"   />
-     <q-btn :label="$t('confirm')" color="red" rounded no-caps class="" style="min-width: 90px" :to="{name: 'ReservationSuccess'}"  />
+     <q-btn :label="$t('confirm')" type="submit" color="red" rounded no-caps class="" style="min-width: 90px" :to="{name: 'ReservationSuccess'}"  />
   </q-card-actions>
 </q-card>
   </div>
+  </transition>
 </template>
 
 <script>
 export default {
-  name: "ReservationPage"
+  name: "ReservationPage",
+  setup() {
+    return {
+      submitNewReservation() {
+        console.log("submitNewReservation");
+      },
+    };
+  },
 }
 </script>
 

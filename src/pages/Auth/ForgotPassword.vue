@@ -1,5 +1,10 @@
 <template>
-  <q-card class="fullscreen" >
+  <transition-group
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
+  <q-card key="forgotPassword" class="fullscreen" >
     <q-card-section class="q-mt-lg q-pt-lg q-pb-lg text-center ">
         <div class="text-h5">{{$t('temporary_password')}}</div>
         <div class="text-subtitle1">{{$t('get_temporary_password')}}</div>
@@ -21,6 +26,7 @@
         </q-form>
     </q-card-section>
   </q-card>
+  </transition-group>
 </template>
 
 <script>

@@ -1,5 +1,10 @@
 <template>
-  <div class="q-pa-md row items-start q-gutter-md">
+  <transition-group
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
+  <div key="reservationPage" class="q-pa-md row items-start q-gutter-md">
 
      <div class="col-12" v-if="event.length <= 0" >
        <h5  class="text-center text-grey">{{$t('no_reservation')}}</h5>
@@ -28,7 +33,7 @@
 
     </q-card>
   </div>
-
+  </transition-group>
 </template>
 
 <script>

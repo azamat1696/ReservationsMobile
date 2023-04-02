@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+   >
   <q-card class="no-shadow">
     <q-card-section class="no-padding">
       <q-banner inline-actions rounded class="text-white q-card--bordered q-pa-none"  style="border-radius: 0px 0px 15px  15px;">
@@ -101,6 +106,7 @@
           </q-form>
     </q-card-section>
   </q-card>
+  </transition>
 </template>
 
 <script>

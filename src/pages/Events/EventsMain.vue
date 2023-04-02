@@ -1,7 +1,13 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
 <div class="q-pa-sm">
   <home-page-event-banner v-for="(e,i) in events" :detail="e" :key="i"/>
 </div>
+    </transition>
 </template>
 <script>
  import HomePageEventBanner from "components/HomePageEventBanner.vue";

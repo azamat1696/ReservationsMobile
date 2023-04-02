@@ -1,4 +1,9 @@
 <template>
+  <transition
+    appear
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  >
   <div class="row ">
     <q-form
     @submit="onUpdate"
@@ -96,6 +101,7 @@
     </q-card>
     </q-form>
   </div>
+    </transition>
 </template>
 
 <script>

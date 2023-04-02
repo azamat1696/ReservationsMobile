@@ -41,4 +41,6 @@ export default {
   edit: 'Düzenle',
   no_reservation: 'Rezervasyon bulunmamaktadır',
   detail: 'Detay',
+  logout: 'Çıkış Yap',
+  search_event: 'Etkinlik Ara',
 }
